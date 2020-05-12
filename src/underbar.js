@@ -123,11 +123,8 @@
           unique[array[i]] = array[i];
           result.push(array[i])
         }
+      }
     }
-    }
-
-
-
     // console.log(unique);
     // push the value into uniq container
     // iterate through uniqu and oush the value to the result var
@@ -143,6 +140,11 @@
     // map() is a useful primitive iteration function that works a lot
     // like each(), but in addition to running the operation on all
     // the members, it also maintains an array of results.
+    var result = [];
+    _.each(collection, function(value, key, collection) {
+      result.push(iterator(value, key, collection));
+    })
+    return result;
   };
 
   /*
