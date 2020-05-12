@@ -105,6 +105,36 @@
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array, isSorted, iterator) {
+    // create uniq obj container
+    var unique = {};
+    // creat result variable
+    var result =[];
+    // iterate through array
+    if (isSorted) {
+      _.each(array, function (value) {
+        if (unique.hasOwnProperty(iterator(value)) === false) {
+          unique[iterator(value)] = iterator(value);
+          result.push(value);
+        }
+      })
+    } else {
+      for (var i = 0; i < array.length; i++) {
+        if (unique[array[i]] === undefined) {
+          unique[array[i]] = array[i];
+          result.push(array[i])
+        }
+    }
+    }
+
+
+
+    // console.log(unique);
+    // push the value into uniq container
+    // iterate through uniqu and oush the value to the result var
+    // for (var key in unique) {
+    //   result.push(unique[key])
+    // }
+    return result;
   };
 
 
